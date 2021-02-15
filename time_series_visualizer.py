@@ -23,19 +23,23 @@ def draw_line_plot():
     fig.savefig('line_plot.png')
     return fig
 
-# def draw_bar_plot():
+def draw_bar_plot():
     # Copy and modify data for monthly bar plot
-    # df_bar = None
+    df_bar = df.copy(deep=True)
+    df_bar['month'] = df_bar.index.month
+    df_bar['year'] = df_bar.index.year
+    df_bar = df_bar.groupby(['year', 'month'])['value'].mean()
+    df_bar = df_bar.unstack()
 
     # Draw bar plot
-
-
-
-
+    fig = df_bar.plot(kind ='bar', figsize=(20,10)).figure
+    plt.xlabel('Years')
+    plt.ylabel('Average Page Views')
+    plt.legend(title='Months', labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'])
 
     # Save image and return fig (don't change this part)
-    # fig.savefig('bar_plot.png')
-    # return fig
+    fig.savefig('bar_plot.png')
+    return fig
 
 # def draw_box_plot():
     # Prepare data for box plots (this part is done!)
