@@ -8,28 +8,28 @@ class DataCleaningTestCase(unittest.TestCase):
         expected = 1238
         self.assertEqual(actual, expected, "Expected DataFrame count after cleaning to be 1238.")
 
-# class LinePlotTestCase(unittest.TestCase):
-#     def setUp(self):
-#         self.fig = time_series_visualizer.draw_line_plot()
-#         self.ax = self.fig.axes[0]
-#
-#     def test_line_plot_title(self):
-#         actual = self.ax.get_title()
-#         expected = "Daily freeCodeCamp Forum Page Views 5/2016-12/2019"
-#         self.assertEqual(actual, expected, "Expected line plot title to be 'Daily freeCodeCamp Forum Page Views 5/2016-12/2019'")
-#
-#     def test_line_plot_labels(self):
-#         actual = self.ax.get_xlabel()
-#         expected = "Date"
-#         self.assertEqual(actual, expected, "Expected line plot xlabel to be 'Date'")
-#         actual = self.ax.get_ylabel()
-#         expected = "Page Views"
-#         self.assertEqual(actual, expected, "Expected line plot ylabel to be 'Page Views'")
-#
-#     def test_line_plot_data_quatity(self):
-#         actual = len(self.ax.lines[0].get_ydata())
-#         expected = 1238
-#         self.assertEqual(actual, expected, "Expected number of data points in line plot to be 1238.")
+class LinePlotTestCase(unittest.TestCase):
+    def setUp(self):
+        self.fig = time_series_visualizer.draw_line_plot()
+        self.ax = self.fig.axes[0]
+
+    def test_line_plot_title(self):
+        actual = self.ax.get_title()
+        expected = "Daily freeCodeCamp Forum Page Views 5/2016-12/2019"
+        self.assertEqual(actual, expected, "Expected line plot title to be 'Daily freeCodeCamp Forum Page Views 5/2016-12/2019'")
+
+    def test_line_plot_labels(self):
+        actual = self.ax.get_xlabel()
+        expected = "Date"
+        self.assertEqual(actual, expected, "Expected line plot xlabel to be 'Date'")
+        actual = self.ax.get_ylabel()
+        expected = "Page Views"
+        self.assertEqual(actual, expected, "Expected line plot ylabel to be 'Page Views'")
+
+    def test_line_plot_data_quatity(self):
+        actual = len(self.ax.lines[0].get_ydata())
+        expected = 1238
+        self.assertEqual(actual, expected, "Expected number of data points in line plot to be 1238.")
 
 
 # class BarPlotTestCase(unittest.TestCase):
